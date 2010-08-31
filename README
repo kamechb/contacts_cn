@@ -1,12 +1,12 @@
-== Welcome to Contacts
+== Welcome to Contacts_cn
 
 Contacts_cn is a universal interface to grab contact list information from various providers including Hotmail, AOL, Gmail, Plaxo, 126, 163, Yeah, Sina, Sohu and Yahoo.
 
 == Download
 
 * gem install contacts_cn
-* http://github.com/cardmagic/contacts
-* git clone git://github.com/cardmagic/contacts.git
+* http://github.com/kamechb/contacts_cn
+* git clone git://github.com/kamechb/contacts_cn.git
 
 == Background
 
@@ -18,11 +18,13 @@ For a long time, the only way to get a list of contacts from your free online em
 	Contacts::Yahoo.new(login, password).contacts
 	Contacts::Gmail.new(login, password).contacts
 	Contacts::NetEase.new(login,password).contacts
+	Contacts::Sina.new(login,password).contacts
 
 	Contacts.new(:gmail, login, password).contacts
 	Contacts.new(:hotmail, login, password).contacts
 	Contacts.new(:yahoo, login, password).contacts
 	Contacts.new(:net_ease,login,password).contacts
+	Contacts.new(:sina,login,password).contacts
 
 	Contacts.guess(login, password).contacts
 
@@ -54,5 +56,6 @@ See the examples/ directory.
 * Leonardo Wong (mailto:mac@boy.name)
 * Rusty Burchfield
 * justintv
+* kame
 
 This library is released under the terms of the BSD.
