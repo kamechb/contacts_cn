@@ -49,10 +49,10 @@ class Contacts
     end
 
     def parse(data)
-			data =~ /conf="(\{.*?\})"/m
+			data =~ /conf.*?contacts:.*?(\{.*?\}),\s*groups:/m
 			contacts = $1.gsub("&quot;",'')
 			contacts = ActiveSupport::JSON.decode(contacts)
-			contacts['contacts']['contact'].map{|contactor|
+			contacts['contact'].map{|contactor|
 				[contactor['name'],contactor['email']]
 			}
     end

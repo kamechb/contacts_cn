@@ -71,7 +71,7 @@ spec = Gem::Specification.new do |s|
 
   #### Author and project details.
 
-  s.authors = ["Lucas Carlson", "Wolfer"]
+  s.authors = ["Lucas Carlson", "kame"]
   s.email = ["lucas@rufy.com,","kamechb@gmail.com"]
   s.homepage = "http://rubyforge.org/projects/contacts"
 end

@@ -102,7 +102,10 @@ class Contacts
 			#get mail server and sid
 			enter_mail_url = ENTER_MAIL_URL[@mail_type] % @login
 			data, resp, cookies, forward = get(enter_mail_url,@cookies)
-			unless data.match(/<a.*?(http.*?)main.jsp\?sid=(.*?)\">/)
+			location = resp['Location']
+			data_reg = /<a.*?(http.*?)main.jsp\?sid=(.*?)\">/
+			location_reg = /(http.*?)main.jsp\?sid=(.*)/
+			unless data.match(data_reg) || location.match(location_reg)
 				raise ConnectionError, self.class.const_get(:PROTOCOL_ERROR)
 			end
 			@cookies = cookies
