@@ -1,4 +1,4 @@
-require File.dirname(__FILE__)+"/../lib/contacts_cn"
+require File.dirname(__FILE__)+"/../lib/im_contacts"
 
 login = ARGV[0]
 password = ARGV[1]

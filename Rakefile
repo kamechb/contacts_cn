@@ -1,10 +1,10 @@
-require 'rubygems'
+# require 'rubygems'
 require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
 require 'rake/gempackagetask'
-require 'rake/contrib/rubyforgepublisher'
-require 'lib/contacts_cn'
+# require 'rake/contrib/rubyforgepublisher'
+require 'lib/im_contacts'
 
 PKG_VERSION = Contacts::VERSION
 
@@ -43,7 +43,7 @@ spec = Gem::Specification.new do |s|
 
   #### Basic information.
 
-  s.name = 'contacts_cn'
+  s.name = 'im_contacts'
   s.version = PKG_VERSION
   s.summary = <<-EOF
    A universal interface to grab contact list information from various providers including Yahoo, AOL, Gmail, Hotmail, 126, 163, Yeah, Sohu, Sina and Plaxo.It is extended from contacts gem.
@@ -62,7 +62,7 @@ spec = Gem::Specification.new do |s|
   s.autorequire = 'contacts'
 
   s.add_dependency('json', '>= 0.4.1')
-  s.add_dependency('gdata', '= 1.1.1')
+  s.add_dependency("gdata19", "~> 0.1.9.2")
   s.requirements << "A json parser, the gdata ruby gem"
 
   #### Documentation and testing.
@@ -71,9 +71,9 @@ spec = Gem::Specification.new do |s|
 
   #### Author and project details.
 
-  s.authors = ["Lucas Carlson", "kame"]
-  s.email = ["lucas@rufy.com,","kamechb@gmail.com"]
-  s.homepage = "http://rubyforge.org/projects/contacts"
+  s.authors = ["Mike Liang"]
+  s.email = ["liangwenke.com@gmail.com"]
+  s.homepage = "http://github.com/liangwenke/im_contacts"
 end
 
 Rake::GemPackageTask.new(spec) do |pkg|

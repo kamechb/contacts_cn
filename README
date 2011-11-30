@@ -1,12 +1,12 @@
-== Welcome to Contacts_cn
+== Welcome to im_contacts
 
 Contacts_cn is a universal interface to grab contact list information from various providers including Hotmail, AOL, Gmail, Plaxo, 126, 163, Yeah, Sina, Sohu and Yahoo.It is extended from contacts gem.
 
 == Download
 
-* gem install contacts_cn
-* http://github.com/kamechb/contacts_cn
-* git clone git://github.com/kamechb/contacts_cn.git
+* gem install im_contacts
+* http://github.com/liangwenke/im_contacts
+* git clone git://github.com/liangwenke/im_contacts.git
 
 == Background
 
