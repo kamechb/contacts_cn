@@ -5,7 +5,7 @@ end
 class Contacts
   def self.parse_json( string )
     if Object.const_defined?('ActiveSupport') and
-       ActiveSupport.const_defined?('JSON')
+      ActiveSupport.const_defined?('JSON')
       ActiveSupport::JSON.decode( string )
     elsif Object.const_defined?('JSON')
       JSON.parse( string )

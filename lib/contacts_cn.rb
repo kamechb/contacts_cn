@@ -2,7 +2,7 @@ $:.unshift(File.dirname(__FILE__)+"/contacts/")
 
 require 'rubygems'
 unless Object.const_defined?('ActiveSupport')
-	require 'activesupport'
+  require 'activesupport'
 end
 require 'base'
 require 'gmail'

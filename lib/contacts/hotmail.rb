@@ -79,7 +79,7 @@ class Contacts
           email_match_text_end = Regexp.escape("&amp;")
 
           raw_html = resp.body.split("
-").grep(/(?:e|dn)lk[0-9]+/)
+          ").grep(/(?:e|dn)lk[0-9]+/)
           raw_html.inject(-1) do |memo, row|
             c_info = row.match(/(e|dn)lk([0-9])+/)
 
@@ -88,10 +88,10 @@ class Contacts
 
             # Grab info
             case c_info[1]
-              when "e" # Email
-                build_contacts.last[1] = row.match(/#{email_match_text_beginning}(.*)#{email_match_text_end}/)[1]
-              when "dn" # Name
-                build_contacts.last[0] = row.match(/<a[^>]*>(.+)<\/a>/)[1]
+            when "e" # Email
+              build_contacts.last[1] = row.match(/#{email_match_text_beginning}(.*)#{email_match_text_end}/)[1]
+            when "dn" # Name
+              build_contacts.last[0] = row.match(/<a[^>]*>(.+)<\/a>/)[1]
             end
 
             # Set memo to contact id

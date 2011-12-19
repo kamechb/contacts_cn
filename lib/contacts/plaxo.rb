@@ -7,28 +7,28 @@ class Contacts
     ADDRESS_BOOK_URL    = "http://www.plaxo.com/po3/?module=ab&operation=viewFull&mode=normal"
     CONTACT_LIST_URL    = "http://www.plaxo.com/axis/soap/contact?_action=getContacts&_format=xml"
     PROTOCOL_ERROR      = "Plaxo has changed its protocols, please upgrade this library first. If that does not work, dive into the code and submit a patch at http://github.com/cardmagic/contacts"
-    
+
     def real_connect
-      
+
     end # real_connect
-    
+
     def contacts
       getdata = "&authInfo.authByEmail.email=%s" % CGI.escape(login)
       getdata += "&authInfo.authByEmail.password=%s" % CGI.escape(password)
       data, resp, cookies, forward = get(CONTACT_LIST_URL + getdata)
-      
+
       if resp.code_type != Net::HTTPOK
         raise ConnectionError, PROTOCOL_ERROR
       end
-      
+
       parse data
     end # contacts
-    
-  private
+
+    private
     def parse(data, options={})
       doc = REXML::Document.new(data)
       code = doc.elements['//response/code'].text
-      
+
       if code == '401'
         raise AuthenticationError, "Username and password do not match"
       elsif code == '200'
@@ -50,13 +50,13 @@ class Contacts
       else
         raise ConnectionError, PROTOCOL_ERROR
       end
-      
+
     end # parse
 
   end # Plaxo
-  
+
   TYPES[:plaxo] = Plaxo
-  
+
 end # Contacts
 
 
@@ -96,7 +96,7 @@ Success
     <message>OK</message>
     <userId>77311236242</userId>
   </response>
-  
+
   <contacts>
 
     <contact>
@@ -109,7 +109,7 @@ Success
       <email1>joeblow1@mailinator.com</email1>
       <folderId>5291351</folderId>
     </contact>
-    
+
     <contact>
       <itemId>61313159</itemId>
       <displayName>Joe Blow2</displayName>
@@ -120,11 +120,11 @@ Success
       <email1>joeblow2@mailinator.com</email1>
       <folderId>5291351</folderId>
     </contact>
-    
+
   </contacts>
-  
+
   <totalCount>2</totalCount>
   <editCounter>3</editCounter>
-  
+
 </ns1:GetContactsResponse>
 =end

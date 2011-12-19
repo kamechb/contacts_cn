@@ -36,7 +36,7 @@ class Contacts
         url = URI.parse(contact_list_url)
         http = open_http(url)
         resp, data = http.get("#{url.path}?#{url.query}",
-          "Cookie" => @cookies
+        "Cookie" => @cookies
         )
 
         if resp.code_type != Net::HTTPOK
@@ -74,7 +74,7 @@ class Contacts
       @password
     end
 
-  private
+    private
 
     def domain
       @d ||= self.class.const_get(:DOMAIN) rescue nil
@@ -142,19 +142,19 @@ class Contacts
       url = URI.parse(url)
       http = open_http(url)
       resp, data = http.post(url.path, postdata,
-        "User-Agent" => "Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US; rv:1.8.1) Gecko/20061010 Firefox/2.0",
-        "Accept-Encoding" => "gzip",
-        "Cookie" => cookies,
-        "Referer" => referer,
-        "Content-Type" => 'application/x-www-form-urlencoded'
+      "User-Agent" => "Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US; rv:1.8.1) Gecko/20061010 Firefox/2.0",
+      "Accept-Encoding" => "gzip",
+      "Cookie" => cookies,
+      "Referer" => referer,
+      "Content-Type" => 'application/x-www-form-urlencoded'
       )
       data = uncompress(resp, data)
       cookies = parse_cookies(resp.response['set-cookie'], cookies)
       forward = resp.response['Location']
       forward ||= (data =~ /<meta.*?url='([^']+)'/ ? CGI.unescapeHTML($1) : nil)
-	if (not forward.nil?) && URI.parse(forward).host.nil?
-		forward = url.scheme.to_s + "://" + url.host.to_s + forward
-	end
+      if (not forward.nil?) && URI.parse(forward).host.nil?
+        forward = url.scheme.to_s + "://" + url.host.to_s + forward
+      end
       return data, resp, cookies, forward
     end
 
@@ -162,17 +162,17 @@ class Contacts
       url = URI.parse(url)
       http = open_http(url)
       resp, data = http.get("#{url.path}?#{url.query}",
-        "User-Agent" => "Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US; rv:1.8.1) Gecko/20061010 Firefox/2.0",
-        "Accept-Encoding" => "gzip",
-        "Cookie" => cookies,
-        "Referer" => referer
+      "User-Agent" => "Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US; rv:1.8.1) Gecko/20061010 Firefox/2.0",
+      "Accept-Encoding" => "gzip",
+      "Cookie" => cookies,
+      "Referer" => referer
       )
       data = uncompress(resp, data)
       cookies = parse_cookies(resp.response['set-cookie'], cookies)
       forward = resp.response['Location']
-	  if (not forward.nil?) && URI.parse(forward).host.nil?
-		forward = url.scheme.to_s + "://" + url.host.to_s + forward
-	  end
+      if (not forward.nil?) && URI.parse(forward).host.nil?
+        forward = url.scheme.to_s + "://" + url.host.to_s + forward
+      end
       return data, resp, cookies, forward
     end
 
@@ -183,8 +183,8 @@ class Contacts
         data = gz.read
         gz.close
         resp.response['content-encoding'] = nil
-      # FIXME: Not sure what Hotmail was feeding me with their 'deflate',
-      #        but the headers definitely were not right
+        # FIXME: Not sure what Hotmail was feeding me with their 'deflate',
+        #        but the headers definitely were not right
       when 'deflate'
         data = Zlib::Inflate.inflate(data)
         resp.response['content-encoding'] = nil
