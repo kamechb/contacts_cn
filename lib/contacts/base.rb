@@ -9,7 +9,7 @@ require "erb"
 
 class Contacts
   TYPES = {}
-  VERSION = "1.2.6"
+  VERSION = "1.2.7"
 
   class Base
     def initialize(login, password, options={})

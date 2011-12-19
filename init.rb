@@ -1,0 +1,1 @@
+require 'im_contacts'
