@@ -4,7 +4,7 @@ class Contacts
     DOMAIN = "sohu.com"
     LOGIN_URL = "https://passport.sohu.com/sso/login.jsp"
     LOGIN_COOKIE = "IPLOC=CN3301; SUV=1008301317090277"
-    MAIL_URL = "http://mail.sohu.com/bapp/81/main"
+    MAIL_URL = "http://mail.sohu.com/bapp/117/main"
     PROTOCOL_ERROR = "sohu has changed its protocols, please upgrade this library first. you can also contact kamechb@gmail.com"
 
     def real_connect
