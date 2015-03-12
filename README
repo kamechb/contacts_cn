@@ -8,6 +8,10 @@ Contacts_cn is a universal interface to grab contact list information from vario
 * http://github.com/kamechb/contacts_cn
 * git clone git://github.com/kamechb/contacts_cn.git
 
+* test revert
+* test revert
+* test revert
+
 == Background
 
 For a long time, the only way to get a list of contacts from your free online email accounts was with proprietary PHP scripts that would cost you $50. The act of grabbing that list is a simple matter of screen scrapping and this library gives you all the functionality you need. Thanks to the generosity of the highly popular Rails website MOG (http://mog.com) for allowing this library to be released open-source to the world. It is easy to extend this library to add new free email providers, so please contact the author if you would like to help.
